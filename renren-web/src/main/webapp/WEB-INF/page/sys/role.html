@@ -26,6 +26,8 @@
 	    <table id="jqGrid"></table>
 	    <div id="jqGridPager"></div>
     </div>
+
+	<input id="date" />
     
     <div v-show="!showList" class="panel panel-default">
 		<div class="panel-heading">{{title}}</div>
@@ -56,7 +58,28 @@
 		</form>
 	</div>
 </div>
-   
-<script src="${rc.contextPath}/js/sys/role.js?_${date.systemTime}"></script>    
+
+
+<script src="${rc.contextPath}/js/sys/role.js?_${date.systemTime}"></script>
+<script src="${rc.contextPath}/js/sys/jquery-ui.min.js?_${date.systemTime}"></script>
+<script src="${rc.contextPath}/js/sys/jquery-ui-timepicker-addon.min.js?_${date.systemTime}"></script>
+
+<script type="text/javascript">
+
+        $(function() {
+            $("#defult").datetimepicker();
+            $('#date').prop("readonly", true).datetimepicker({
+                timeText: '时间',
+                hourText: '小时',
+                minuteText: '分钟',
+                secondText: '秒',
+                currentText: '现在'
+                ,dateFormat: "yy-mm-dd",
+                closeText: '完成',
+                showSecond: true, //显示秒
+                timeFormat: 'HH:mm:ss' //格式化时间
+            });
+        });
+</script>
 </body>
 </html>
