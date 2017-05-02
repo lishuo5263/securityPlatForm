@@ -21,6 +21,10 @@
 			#if($shiro.hasPermission("sys:user:delete"))
 			<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
 			#end
+			<div class="form-group col-sm-2">
+				<input class="form-control date-picker" name="lastLoginStart" id="lastLoginStart"   type="text" data-date-format="yyyy-mm-dd" readonly="readonly" style="width:120px;" placeholder="开始日期" title="最近登录开始"/>
+			</div>
+
 		</div>
 	    <table id="jqGrid"></table>
 	    <div id="jqGridPager"></div>
@@ -80,5 +84,14 @@
 </div>
 
 <script src="${rc.contextPath}/js/sys/user.js?_${date.systemTime}"></script>
+<script type="text/javascript" src="${rc.contextPath}/js/bootstrap-datepicker.min.js"></script><!-- 日期框 -->
+<script type="text/javascript">
+	$(function() {
+
+		//日期框
+		$('.date-picker').datepicker();
+	});
+</script>
+
 </body>
 </html>
